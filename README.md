@@ -8,7 +8,7 @@ on project root directory to install  QuickAid dependencies run.
 ```bash
 npx expo install
 ```
-## Installation
+## start the app
 
 ```bash
 npx expo start
