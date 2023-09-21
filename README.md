@@ -2,8 +2,8 @@
 mobile appliction built with React native and expo for easy access to first aid information.
 
 ## Installation
-
-Use the package manager to install QuickAid.
+Clone the app
+on project root directory to install  QuickAid dependencies run.
 
 ```bash
 npx expo install
