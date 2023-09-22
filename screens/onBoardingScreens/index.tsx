@@ -18,7 +18,7 @@ const COLORS = {primary: '#fff', white: '#F94C81'};
 const slides = [
   {
     id: '1',
-    image: require('../../assets/firstboard.png'),
+    image: require('../../assets/fcboard.png'),
     title: 'For immediate assistance and ',
     titlered: 'first aid tips ',
     subtitle: 'Access real-time first aid information online when you need it the most',
@@ -44,7 +44,7 @@ const Slide = ({item}:any) => {
     <View style={{alignItems: 'center'}}>
       <Image
         source={item?.image}
-        style={{height: '65%', width, resizeMode: 'contain'}}
+        style={{height: '55%', width, resizeMode: 'contain'}}
       />
       <View>
         <Text style={styles.title}>{item?.title}</Text>
@@ -111,13 +111,13 @@ const OnboardingScreen = ({navigation}:any) => {
         </View>
 
         {/* Render buttons */}
-        <View style={{marginBottom: 40}}>
+        <View style={{marginBottom: 30}}>
           {currentSlideIndex == slides.length - 1 ? (
             <View style={{height: 50}}>
               <TouchableOpacity
                 style={styles.getStatedbtn}
                 onPress={() => navigation.replace('home')}>
-                <Text style={{fontWeight: 'bold', fontSize: 15, color:"white"}}>
+                <Text style={{ fontFamily: 'Poppins-bold', fontSize: 15, color:"white"}}>
                   GET STARTED
                 </Text>
               </TouchableOpacity>
@@ -138,7 +138,7 @@ const OnboardingScreen = ({navigation}:any) => {
                 onPress={skip}>
                 <Text
                   style={{
-                    fontWeight: 'bold',
+                    fontFamily: 'Poppins-bold',
                     fontSize: 18,
                     color: COLORS.white,
                   }}>
@@ -152,7 +152,7 @@ const OnboardingScreen = ({navigation}:any) => {
                 style={styles.btn}>
                 <Text
                   style={{
-                    fontWeight: 'bold',
+                    fontFamily: 'Poppins-bold',
                     fontSize: 15,
                     color:"white"
                   }}>
@@ -192,15 +192,16 @@ const styles = StyleSheet.create({
     maxWidth: '70%',
     textAlign: 'center',
     lineHeight: 23,
+    fontFamily:"Poppins-semibold",
     width:270
   },
   title: {
     // color: COLORS.white,
-    fontSize: 36,
-    fontWeight: 'bold',
+    fontSize: 18,
     marginTop: 20,
     textAlign: 'center',
-    width:250
+    width:250, 
+    fontFamily:"Poppins-bold"
   },
   image: {
     height: '100%',

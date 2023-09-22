@@ -5,6 +5,7 @@ import { View, Text } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../screens/Home';
 import OnboardingScreen from '../screens/onBoardingScreens';
+import ChooseLanguageScreen from '../screens/ChooseLanguage';
 
 function HomeScreen() {
   return (
@@ -23,6 +24,7 @@ function AppNavigator() {
         headerShown:false,
       }}
       >
+        <Stack.Screen name="language" component={ChooseLanguageScreen} />
          <Stack.Screen name="onboarding" component={OnboardingScreen} />
         <Stack.Screen name="home" component={Home} />
       </Stack.Navigator>
