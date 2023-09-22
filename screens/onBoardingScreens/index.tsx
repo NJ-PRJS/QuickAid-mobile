@@ -10,7 +10,9 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
-
+import { swahilislides } from '../../data/SwahiliBoarding';
+import { englishslides } from '../../data/EnglishBoarding';
+import { useQuickAidContext } from '../../Context';
 const {width, height} = Dimensions.get('window');
 
 const COLORS = {primary: '#fff', white: '#F94C81'};
@@ -57,12 +59,16 @@ const Slide = ({item}:any) => {
 
 const OnboardingScreen = ({navigation}:any) => {
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
+  const {defaultLanguage} = useQuickAidContext();
+
   const ref:any = React.useRef();
   const updateCurrentSlideIndex = (e:any) => {
     const contentOffsetX = e.nativeEvent.contentOffset.x;
     const currentIndex = Math.round(contentOffsetX / width);
     setCurrentSlideIndex(currentIndex);
   };
+
+  const slidess = defaultLanguage?.language === "ENGLISH"? englishslides: swahilislides;
 
   const goToNextSlide = () => {
     const nextSlideIndex = currentSlideIndex + 1;
@@ -167,7 +173,7 @@ const OnboardingScreen = ({navigation}:any) => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.primary}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.primary, paddingTop:10}}>
       <StatusBar backgroundColor={COLORS.primary} />
       <FlatList
         ref={ref}
@@ -175,7 +181,7 @@ const OnboardingScreen = ({navigation}:any) => {
         contentContainerStyle={{height: height * 0.75,}}
         showsHorizontalScrollIndicator={false}
         horizontal
-        data={slides}
+        data={slidess}
         pagingEnabled
         renderItem={({item}) => <Slide item={item} />}
       />
@@ -231,7 +237,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     // alignItems: 'center',
     width:80,
-    // elevation:10
+    marginTop:10
   },
   getStatedbtn:{
     height: 50,
