@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import AppNavigator from "./navigation/AppNavigator";
 import { useFonts } from "expo-font";
+import { QuickAidProvider } from "./Context";
 
 // const fetchFonts = () => {
 //   return Font.loadAsync({});
@@ -28,7 +29,9 @@ export default function App() {
   }
   return (
     <NavigationContainer>
+      <QuickAidProvider>
       <AppNavigator />
+      </QuickAidProvider>
     </NavigationContainer>
   );
 }
