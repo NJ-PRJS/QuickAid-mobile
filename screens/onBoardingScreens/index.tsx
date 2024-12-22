@@ -13,33 +13,11 @@ import {
 import { swahilislides } from '../../data/SwahiliBoarding';
 import { englishslides } from '../../data/EnglishBoarding';
 import { useQuickAidContext } from '../../Context';
+import {styles} from "../../globalStyles/onBoardingStyles";
+
 const {width, height} = Dimensions.get('window');
 
 const COLORS = {primary: '#fff', white: '#F94C81'};
-
-const slides = [
-  {
-    id: '1',
-    image: require('../../assets/fcboard.png'),
-    title: 'For immediate assistance and ',
-    titlered: 'first aid tips ',
-    subtitle: 'Access real-time first aid information online when you need it the most',
-  },
-  {
-    id: '2',
-    image: require('../../assets/Group.png'),
-    title: 'Instantly access nearby hospitals ',
-    titlered: '',
-    subtitle: 'first aid assistance allows you to quickly share nearby hospital locations with ease.',
-  },
-  {
-    id: '3',
-    image: require('../../assets/doc.png'),
-    title: 'Your online medical guidance ',
-    titlered: 'is here for you',
-    subtitle: 'In moments of distress, your virtual health companion is here to assist you online.',
-  },
-];
 
 const Slide = ({item}:any) => {
   return (
@@ -72,7 +50,7 @@ const OnboardingScreen = ({navigation}:any) => {
 
   const goToNextSlide = () => {
     const nextSlideIndex = currentSlideIndex + 1;
-    if (nextSlideIndex != slides.length) {
+    if (nextSlideIndex != slidess.length) {
       const offset = nextSlideIndex * width;
       ref?.current.scrollToOffset({offset});
       setCurrentSlideIndex(currentSlideIndex + 1);
@@ -80,7 +58,7 @@ const OnboardingScreen = ({navigation}:any) => {
   };
 
   const skip = () => {
-    const lastSlideIndex = slides.length - 1;
+    const lastSlideIndex = slidess.length - 1;
     const offset = lastSlideIndex * width;
     ref?.current.scrollToOffset({offset});
     setCurrentSlideIndex(lastSlideIndex);
@@ -102,7 +80,7 @@ const OnboardingScreen = ({navigation}:any) => {
             marginTop: 20,
           }}>
           {/* Render indicator */}
-          {slides.map((_, index) => (
+          {slidess.map((_, index) => (
             <View
               key={index}
               style={[
@@ -118,7 +96,7 @@ const OnboardingScreen = ({navigation}:any) => {
 
         {/* Render buttons */}
         <View style={{marginBottom: 30}}>
-          {currentSlideIndex == slides.length - 1 ? (
+          {currentSlideIndex == slidess.length - 1 ? (
             <View style={{height: 50}}>
               <TouchableOpacity
                 style={styles.getStatedbtn}
@@ -190,63 +168,5 @@ const OnboardingScreen = ({navigation}:any) => {
   );
 };
 
-const styles = StyleSheet.create({
-  subtitle: {
-    // color: COLORS.white,
-    fontSize: 13,
-    marginTop: 10,
-    maxWidth: '70%',
-    textAlign: 'center',
-    lineHeight: 23,
-    fontFamily:"Poppins-semibold",
-    width:270
-  },
-  title: {
-    // color: COLORS.white,
-    fontSize: 18,
-    marginTop: 20,
-    textAlign: 'center',
-    width:250, 
-    fontFamily:"Poppins-bold"
-  },
-  image: {
-    height: '100%',
-    width: '100%',
-    resizeMode: 'contain',
-  },
-  indicator: {
-    height: 2.5,
-    width: 10,
-    backgroundColor: 'grey',
-    marginHorizontal: 3,
-    borderRadius: 2,
-  },
-  btn: {
-    height: 50,
-    borderRadius: 50,
-    backgroundColor:COLORS.white,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width:80,
-    elevation:10
-  },
-  btnsk: {
-    height: 50,
-    borderRadius: 50,
-    backgroundColor:COLORS.white,
-    justifyContent: 'center',
-    // alignItems: 'center',
-    width:80,
-    marginTop:10
-  },
-  getStatedbtn:{
-    height: 50,
-    borderRadius: 50,
-    backgroundColor:COLORS.white,
-    justifyContent: 'center',
-    alignItems: 'center',
-    elevation:10,
-    flex:1
-  }
-});
+
 export default OnboardingScreen;

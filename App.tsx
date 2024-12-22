@@ -5,10 +5,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import AppNavigator from "./navigation/AppNavigator";
 import { useFonts } from "expo-font";
 import { QuickAidProvider } from "./Context";
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-// const fetchFonts = () => {
-//   return Font.loadAsync({});
-// };
 export default function App() {
   const [isAppFirstLaunched, setIsAppFirstLaunched] = React.useState(null);
 

@@ -1,5 +1,5 @@
 export default {
     primary: '#F94C81',
-    accent: '#6FA8DD',
+    accent: '#EFF3F9',
     secondary:'#B3D5F4'
 };
